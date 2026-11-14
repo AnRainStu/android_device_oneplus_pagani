@@ -9,6 +9,7 @@ vendor.display.uir_support=1
 
 # Regional properties
 ro.product.property_source_order=odm,vendor,product,system_ext,system
+import /odm/etc/${ro.boot.prjname}/build.default.prop
 
 # Sensors
 ro.vendor.oplus.sensor.brl_receive=true

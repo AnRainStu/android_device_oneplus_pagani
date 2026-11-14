@@ -65,6 +65,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     sensors.oplus
 
+# Regional properties
+REGIONAL_PROP_FILES := $(wildcard $(LOCAL_PATH)/properties/*/*.prop)
+
+PRODUCT_COPY_FILES += $(foreach f,$(REGIONAL_PROP_FILES), \
+    $(f):$(TARGET_COPY_OUT_ODM)/etc/$(patsubst $(LOCAL_PATH)/properties/%,%,$(f)) \
+    $(f):$(TARGET_COPY_OUT_RECOVERY)/root/vendor/odm/etc/$(patsubst $(LOCAL_PATH)/properties/%,%,$(f)))
+
 # SecureElement
 PRODUCT_PACKAGES += \
     SecureElementResTarget_Vendor
